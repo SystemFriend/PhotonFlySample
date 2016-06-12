@@ -8,10 +8,16 @@ public class JetEngine : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         this.speed = 0.5f + Random.value;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+        var meshRenderer = this.GetComponent<MeshRenderer>();
+        meshRenderer.material.color = new Color(Random.value, Random.value, Random.value);
+
+        var trailRenderer = this.GetComponent<TrailRenderer>();
+        trailRenderer.material.color = meshRenderer.material.color;
+    }
+
+    // Update is called once per frame
+    void Update () {
         //現在の回転量を取得する
         var currentRotation = this.transform.localRotation;
 

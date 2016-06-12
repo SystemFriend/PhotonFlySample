@@ -32,8 +32,6 @@ public class RandomMatchmaker : Photon.PunBehaviour
     public override void OnJoinedRoom()
     {
         var player = PhotonNetwork.Instantiate(this.prefabName, new Vector3(0f, 250f + (Random.value * 500f), 0f), Quaternion.identity, 0);
-        var meshRenderer = player.GetComponentInChildren<MeshRenderer>();
-        meshRenderer.material.color = new Color(Random.value, Random.value, Random.value);
         this.viewSwitcher.myCaracter = player;
         this.viewSwitcher.SwitchCameraToLocal();
 
